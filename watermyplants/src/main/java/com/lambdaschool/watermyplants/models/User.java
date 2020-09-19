@@ -76,6 +76,9 @@ public class User
     @JsonIgnoreProperties(value = "user", allowSetters = true)
     private Set<UserRoles> roles = new HashSet<>();
 
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonIgnoreProperties(value = "user",allowSetters = true)
+    private List<Plant> plants = new ArrayList<>();
     /**
      * Default constructor used primarily by the JPA.
      */
