@@ -158,8 +158,6 @@ public class SeedData
         userService.save(u1);
         userService.save(u2);
         userService.save(u3);
-        userService.save(u4);
-        userService.save(u5);
 
 //        if (false)
 //        {
