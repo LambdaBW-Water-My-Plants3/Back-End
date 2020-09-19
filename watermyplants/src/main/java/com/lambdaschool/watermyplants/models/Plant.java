@@ -18,7 +18,7 @@ public class Plant extends Auditable{
     private String species;
 
     @Column(nullable = false)
-    private int waterfrequency;
+    private String waterfrequency;
 
     private String imgurl;
 
@@ -30,7 +30,7 @@ public class Plant extends Auditable{
     public Plant() {
     }
 
-    public Plant(String nickname, String species, int waterfrequency, String imgurl, User user) {
+    public Plant(String nickname, String species, String waterfrequency, String imgurl, User user) {
         this.nickname = nickname;
         this.species = species;
         this.waterfrequency = waterfrequency;
@@ -62,11 +62,11 @@ public class Plant extends Auditable{
         this.species = species;
     }
 
-    public int getWaterfrequency() {
+    public String getWaterfrequency() {
         return waterfrequency;
     }
 
-    public void setWaterfrequency(int waterfrequency) {
+    public void setWaterfrequency(String waterfrequency) {
         this.waterfrequency = waterfrequency;
     }
 

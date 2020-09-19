@@ -105,6 +105,14 @@ public class User
         this.primaryemail = primaryemail;
     }
 
+    public List<Plant> getPlants() {
+        return plants;
+    }
+
+    public void setPlants(List<Plant> plants) {
+        this.plants = plants;
+    }
+
     /**
      * Getter for userid
      *

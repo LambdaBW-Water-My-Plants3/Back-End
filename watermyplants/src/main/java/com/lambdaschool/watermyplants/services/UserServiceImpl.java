@@ -1,10 +1,7 @@
 package com.lambdaschool.watermyplants.services;
 
 import com.lambdaschool.watermyplants.exceptions.ResourceNotFoundException;
-import com.lambdaschool.watermyplants.models.Role;
-import com.lambdaschool.watermyplants.models.User;
-import com.lambdaschool.watermyplants.models.UserRoles;
-import com.lambdaschool.watermyplants.models.Useremail;
+import com.lambdaschool.watermyplants.models.*;
 import com.lambdaschool.watermyplants.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -121,6 +118,11 @@ public class UserServiceImpl
                 .add(new Useremail(newUser,
                     ue.getUseremail()));
         }
+        newUser.getPlants().clear();
+        for(Plant p : user.getPlants()){
+            newUser.getPlants().add(new Plant(p.getNickname(),p.getSpecies(),
+                    p.getWaterfrequency(),p.getImgurl(),newUser));
+        }
 
         return userrepos.save(newUser);
     }
@@ -178,6 +180,13 @@ public class UserServiceImpl
                     currentUser.getUseremails()
                         .add(new Useremail(currentUser,
                             ue.getUseremail()));
+                }
+            }
+            if(user.getPlants().size()>0){
+                currentUser.getPlants().clear();
+                for(Plant p : user.getPlants()){
+                    currentUser.getPlants().add(new Plant(p.getNickname(),p.getSpecies(),
+                            p.getWaterfrequency(),p.getImgurl(),currentUser));
                 }
             }
 
