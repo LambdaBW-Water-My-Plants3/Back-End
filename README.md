@@ -61,4 +61,40 @@ Method | HTTP request | Description
 [**PATCH**](UserControllerApi.md#updateUserUsingPATCH) |  /users/user/{id} | updateUser
 
 
-
+# JSON
+Sample Json User Object
+---
+```json
+{
+        "userid": 500,
+        "username": "doggy",
+        "primaryemail": "doggyadmin@lambdaschool.local",
+        "useremails": [
+            {
+                "useremailid": 11,
+                "useremail": "admin@dog.local"
+            },
+            {
+                "useremailid": 12,
+                "useremail": "admin@cat.local"
+            }
+        ],
+        "roles": [
+            {
+                "role": {
+                    "roleid": 1,
+                    "name": "ADMIN"
+                }
+            }
+        ],
+        "plants": [
+            {
+                "plantid": 5,
+                "nickname": "Bunny Ears Cactus",
+                "species": "Cactus",
+                "waterfrequency": "1x weekly",
+                "imgurl": "https://images.unsplash.com/photo-1573692822546-99d57af10a33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+            }
+        ]
+    }
+```
