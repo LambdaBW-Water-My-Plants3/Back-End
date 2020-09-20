@@ -3,10 +3,7 @@ package com.lambdaschool.watermyplants;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
-import com.lambdaschool.watermyplants.models.Role;
-import com.lambdaschool.watermyplants.models.User;
-import com.lambdaschool.watermyplants.models.UserRoles;
-import com.lambdaschool.watermyplants.models.Useremail;
+import com.lambdaschool.watermyplants.models.*;
 import com.lambdaschool.watermyplants.services.RoleService;
 import com.lambdaschool.watermyplants.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,51 +77,84 @@ public class SeedData
                 .add(new Useremail(u1,
                                    "admin@mymail.local"));
 
-        userService.save(u1);
 
         // data, user
-        User u2 = new User("cinnamon",
-                           "1234567",
-                           "cinnamon@lambdaschool.local");
+        User u2 = new User("test user",
+                           "testuser1234",
+                           "testuser@lambdaschool.local");
         u2.getRoles()
                 .add(new UserRoles(u2, r2));
         u2.getRoles()
                 .add(new UserRoles(u2, r3));
         u2.getUseremails()
                 .add(new Useremail(u2,
-                                   "cinnamon@mymail.local"));
+                                   "usertest@mymail.local"));
         u2.getUseremails()
                 .add(new Useremail(u2,
-                                   "hops@mymail.local"));
-        u2.getUseremails()
-                .add(new Useremail(u2,
-                                   "bunny@email.local"));
-        userService.save(u2);
+                                   "usertest2@mymail.local"));
+
+
 
         // user
-        User u3 = new User("barnbarn",
-                           "ILuvM4th!",
-                           "barnbarn@lambdaschool.local");
+        User u3 = new User("datatest",
+                           "testdata1234",
+                           "datatester@lambdaschool.local");
         u3.getRoles()
                 .add(new UserRoles(u3, r2));
         u3.getUseremails()
                 .add(new Useremail(u3,
-                                   "barnbarn@email.local"));
+                                   "testerdata@email.local"));
+
+        Plant p1 = new Plant("Bunny Ears Cactus","Cactus","1x weekly","https" +
+                "://images.unsplash.com/photo-1573692822546-99d57af10a33" +
+                "?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit" +
+                "=crop&w=634&q=80",u1);
+
+
+        Plant p2 = new Plant("Jumping Chola","Cactus","1x weekly","https" +
+                "://images.unsplash.com/photo-1539571711714-62cd2534f96e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",u1);
+
+
+        Plant p3 = new Plant("Giant Timber Bamboo","Bamboo","5x weekly",
+                "https://images.unsplash.com/photo-1510398462662-b28a5183460d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",u1);
+
+
+        Plant p4 = new Plant("ShamePlant","Mimosa Pudica","Keep Soil Moist, " +
+                "but not water logged","https" +
+                "://images.unsplash.com/photo-1573692822546-99d57af10a33" +
+                "?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit" +
+                "=crop&w=634&q=80",u1);
+
+
+        Plant p5 = new Plant("Cattleya Orchid","Orchid","Water when potting " +
+                "Medium is dry",
+                "https" +
+                "://images.unsplash.com/photo-1534885320675-b08aa131cc5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",u1);
+
+
+        Plant p6 = new Plant("ButterHead Lettuce","Lettuce","twice weekly",
+                "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=925&q=80",u1);
+
+
+        Plant p7 = new Plant("Romaine Lettuce","Lettuce","twice weekly",
+                "https://images.unsplash.com/photo-1582726458086-30eef5a7ef89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",u2);
+
+
+        Plant p8 = new Plant("Batavia Lettuce","Lettuce","twice weekly",
+                "https://images.unsplash.com/photo-1598998255396-9c0289d33304?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80",u2);
+
+        u1.getPlants().add(p1);
+        u1.getPlants().add(p2);
+        u1.getPlants().add(p3);
+        u1.getPlants().add(p4);
+        u1.getPlants().add(p5);
+        u1.getPlants().add(p6);
+        u2.getPlants().add(p7);
+        u2.getPlants().add(p8);
+
+        userService.save(u1);
+        userService.save(u2);
         userService.save(u3);
-
-        User u4 = new User("puttat",
-                           "password",
-                           "puttat@school.lambda");
-        u4.getRoles()
-                .add(new UserRoles(u4, r2));
-        userService.save(u4);
-
-        User u5 = new User("misskitty",
-                           "password",
-                           "misskitty@school.lambda");
-        u5.getRoles()
-                .add(new UserRoles(u5, r2));
-        userService.save(u5);
 
 //        if (false)
 //        {

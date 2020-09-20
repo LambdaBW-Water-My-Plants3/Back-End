@@ -1,6 +1,8 @@
 package com.lambdaschool.watermyplants.controllers;
 
 import com.lambdaschool.watermyplants.models.User;
+import com.lambdaschool.watermyplants.models.UserRoles;
+import com.lambdaschool.watermyplants.services.RoleService;
 import com.lambdaschool.watermyplants.services.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * The entry point for clients to access user data
@@ -36,6 +40,9 @@ public class UserController
      */
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RoleService roleService;
 
     /**
      * Returns a list of all users
@@ -130,6 +137,12 @@ public class UserController
             URISyntaxException
     {
         newuser.setUserid(0);
+        newuser = userService.save(newuser);
+        Set<UserRoles> newRoles = new HashSet<>();
+        newRoles.add(new UserRoles(newuser,
+                roleService.findByName("user")));
+        newuser.setRoles(newRoles);
+
         newuser = userService.save(newuser);
 
         // set the location header for the newly created resource
