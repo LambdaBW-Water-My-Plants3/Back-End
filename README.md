@@ -15,10 +15,7 @@ https://watermyplantunit4.herokuapp.com/
  - [UserRoles](docs/UserRoles.md)
  - [Useremail](docs/Useremail.md)
 
-
-## Documentation For Authorization
-
- All endpoints That do not require authorization.
+# All endpoints That do not require authorization.
  
  Method | HTTP request | Object Expected
  ------------- | ------------- | -------------
@@ -26,15 +23,15 @@ https://watermyplantunit4.herokuapp.com/
 **POST** | /login | username & password
 
 
-ALL endpoints That NEED authorization
+# ALL endpoints That NEED authorization
 
 # PLANT API
 
-All URIs are relative to **
+All URIs are relative to baseUrl
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**POST**](PlantControllerApi.md#addNewPlantUsingPOST) | plants/plant | addNewPlant
+[**POST**](PlantControllerApi.md#addNewPlantUsingPOST) | /plants/plant | addNewPlant
 [**DELETE**](PlantControllerApi.md#deletePlantByIdUsingDELETE) | /plants/plant/delete/{plantid} | deletePlantById
 [**GET**](PlantControllerApi.md#findPlantByNameLikeUsingGET) | /plants/plant/withname/{plantname} | findPlantByNameLike
 [**GET**](PlantControllerApi.md#getPlantByIdUsingGET) | /plants/plant/id/{plantid} | getPlantById
@@ -46,7 +43,7 @@ Method | HTTP request | Description
 
 # USERAPI
 
-All URIs are relative to **
+All URIs are relative to baseUrl
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
