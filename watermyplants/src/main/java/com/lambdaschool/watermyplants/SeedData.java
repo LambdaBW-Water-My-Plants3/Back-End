@@ -82,31 +82,29 @@ public class SeedData
         // data, user
         User u2 = new User("test user",
                            "testuser1234",
-                           "cinnamon@lambdaschool.local");
+                           "testuser@lambdaschool.local");
         u2.getRoles()
                 .add(new UserRoles(u2, r2));
         u2.getRoles()
                 .add(new UserRoles(u2, r3));
         u2.getUseremails()
                 .add(new Useremail(u2,
-                                   "cinnamon@mymail.local"));
+                                   "usertest@mymail.local"));
         u2.getUseremails()
                 .add(new Useremail(u2,
-                                   "hops@mymail.local"));
-        u2.getUseremails()
-                .add(new Useremail(u2,
-                                   "bunny@email.local"));
+                                   "usertest2@mymail.local"));
+
 
 
         // user
         User u3 = new User("datatest",
                            "testdata1234",
-                           "barnbarn@lambdaschool.local");
+                           "datatester@lambdaschool.local");
         u3.getRoles()
                 .add(new UserRoles(u3, r2));
         u3.getUseremails()
                 .add(new Useremail(u3,
-                                   "barnbarn@email.local"));
+                                   "testerdata@email.local"));
 
         Plant p1 = new Plant("Bunny Ears Cactus","Cactus","1x weekly","https" +
                 "://images.unsplash.com/photo-1573692822546-99d57af10a33" +
