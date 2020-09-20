@@ -78,7 +78,6 @@ public class SeedData
                                    "admin@mymail.local"));
 
 
-
         // data, user
         User u2 = new User("test user",
                            "testuser1234",
