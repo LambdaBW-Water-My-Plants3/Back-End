@@ -1,9 +1,9 @@
-##WATER MY PLANTS API
+## WATER MY PLANTS API
 
-#Description
+# Description
 App that will Streamline plant watering for Users
 
-#Base Url
+# Base Url
 https://watermyplantunit4.herokuapp.com/
 
 ## Documentation For Models/Objects
