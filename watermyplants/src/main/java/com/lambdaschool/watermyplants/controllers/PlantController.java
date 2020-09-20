@@ -1,31 +1,31 @@
 package com.lambdaschool.watermyplants.controllers;
-
 import com.lambdaschool.watermyplants.models.Plant;
-import com.lambdaschool.watermyplants.models.User;
-import com.lambdaschool.watermyplants.models.UserRoles;
 import com.lambdaschool.watermyplants.services.PlantService;
 import com.lambdaschool.watermyplants.services.UserService;
-import org.h2.table.Plan;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("plants")
+@RequestMapping("/plants")
 public class PlantController {
-
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private PlantService plantService;
@@ -47,8 +47,7 @@ public class PlantController {
         return new ResponseEntity<>(myPlant,
                 HttpStatus.OK);
     }
-
-    @GetMapping(value = "/plant/{plantname}",
+    @GetMapping(value = "/plant/withname/{plantname}",
             produces = "application/json")
     public ResponseEntity<?> findPlantByNameLike(@PathVariable String plantname)
     {
@@ -57,7 +56,7 @@ public class PlantController {
                 HttpStatus.OK);
     }
 
-    @GetMapping(value = "/plant/{plantid}",
+    @GetMapping(value = "/plant/id/{plantid}",
             produces = "application/json")
     public ResponseEntity<?> getPlantById(@PathVariable Long plantid)
     {
@@ -66,7 +65,7 @@ public class PlantController {
                 HttpStatus.OK);
     }
 
-    @GetMapping(value = "/plant/{species}",
+    @GetMapping(value = "/plant/species/{species}",
             produces = "application/json")
     public ResponseEntity<?> getPlantBySpecies(@PathVariable String species)
     {
@@ -75,7 +74,7 @@ public class PlantController {
                 HttpStatus.OK);
     }
 
-    @GetMapping(value = "/plant/{species}",
+    @GetMapping(value = "/plant/withspecies/{species}",
             produces = "application/json")
     public ResponseEntity<?> getPlantBySpeciesLike(@PathVariable String species)
     {
@@ -84,7 +83,7 @@ public class PlantController {
                 HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/plant/{plantid}")
+    @DeleteMapping(value = "/plant/delete/{plantid}")
     public ResponseEntity<?> deletePlantById(
             @PathVariable
                     long plantid)
