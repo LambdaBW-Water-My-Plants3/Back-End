@@ -32,7 +32,7 @@ public class Swagger2Config
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors
-                              .basePackage("com.lambdaschool.usermodel"))
+                              .basePackage("com.lambdaschool.watermyplants"))
                 .paths(PathSelectors.regex("/.*"))
                 .build()
                 .apiInfo(apiEndPointsInfo());
@@ -45,13 +45,13 @@ public class Swagger2Config
      */
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("User Model Example")
-                .description("User Model Example")
-                .contact(new Contact("John Mitchell",
-                                     "http://www.lambdaschool.com",
-                                     "john@lambdaschool.com"))
+        return new ApiInfoBuilder().title("Water My Plants")
+                .description("Water My Plants")
+                .contact(new Contact("Julliann Dulay",
+                                     "https://thejullianndulay.tech/",
+                                     "jdulaytech@thejullianndulay.tech"))
                 .license("MIT")
-                .licenseUrl("https://github.com/LambdaSchool/java-usermodel/blob/master/LICENSE")
+                .licenseUrl("https://github.com/LambdaBW-Water-My-Plants3/Back-End/blob/master/LICENSE")
                 .version("1.0.0")
                 .build();
     }
