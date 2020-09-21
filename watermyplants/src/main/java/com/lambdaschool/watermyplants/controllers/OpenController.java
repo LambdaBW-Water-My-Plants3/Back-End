@@ -57,6 +57,12 @@ public class OpenController
      * @return The token access and other relevent data to token access. Status of CREATED. The location header to look up the new user.
      * @throws URISyntaxException we create some URIs during this method. If anything goes wrong with that creation, an exception is thrown.
      */
+    @GetMapping(value = "/")
+    public ResponseEntity<?> herokuAwake(){
+        String hello = "Hello Heroku";
+        return new ResponseEntity<>(hello, HttpStatus.OK);
+    }
+
     @PostMapping(value = "/signup",
             consumes = {"application/json"},
             produces = {"application/json"})
