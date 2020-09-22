@@ -20,7 +20,7 @@ import java.util.Locale;
  * after the application context has been loaded.
  */
 @Transactional
-@Component
+//@Component
 public class SeedData
         implements CommandLineRunner
 {
