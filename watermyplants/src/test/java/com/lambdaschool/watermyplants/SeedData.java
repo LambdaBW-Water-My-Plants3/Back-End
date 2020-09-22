@@ -1,8 +1,5 @@
 package com.lambdaschool.watermyplants;
 
-import com.github.javafaker.Faker;
-import com.github.javafaker.service.FakeValuesService;
-import com.github.javafaker.service.RandomService;
 import com.lambdaschool.watermyplants.models.*;
 import com.lambdaschool.watermyplants.services.RoleService;
 import com.lambdaschool.watermyplants.services.UserService;
@@ -11,8 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Locale;
-
 /**
  * SeedData puts both known and random data into the database. It implements CommandLineRunner.
  * <p>
@@ -20,7 +15,7 @@ import java.util.Locale;
  * after the application context has been loaded.
  */
 @Transactional
-//@Component
+@Component
 public class SeedData
         implements CommandLineRunner
 {
