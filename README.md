@@ -1,4 +1,6 @@
 ## WATER MY PLANTS API
+# Swagger Docs
+https://watermyplantunit4.herokuapp.com/swagger-ui.html#/
 
 # Description
 App that will Streamline plant watering for Users
